@@ -1,0 +1,28 @@
+{
+  "name": "pre-onboarding-test",
+  "version": "1.0.0",
+  "description": "원티드 프리온보딩 백엔드 코스 선발과제",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyo-jin-jeong/wanted_pre_onboarding.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hyo-jin-jeong/wanted_pre_onboarding/issues"
+  },
+  "homepage": "https://github.com/hyo-jin-jeong/wanted_pre_onboarding#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
