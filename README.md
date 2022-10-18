@@ -27,7 +27,82 @@
 ## 실행방법
 
 ## DB Modeling
-![image](https://user-images.githubusercontent.com/55984573/196091367-c95f0745-857c-42a7-8508-7acb6ace79a3.png)
-
+![image](https://user-images.githubusercontent.com/55984573/196209206-c8db9ab3-ad90-428c-93bf-5cb07955f5cc.png)
 
 ## API 문서
+### 1. 채용공고 등록 
+- url: /jobs
+- method: POST
+- request 
+  ```json
+  {
+    "companyId": 회사_id,
+    "position":"백엔드 주니어 개발자",
+    "compensation":1000000,
+    "contents":"원티드랩에서 백엔드 주니어 개발자를 채용합니다. 자격요건은..",
+    "skill":"Python"
+  }
+  ```
+- response
+  - 성공(200)
+  ```json
+  {
+    "success": true
+  }
+  ```
+  - 회사 id가 없는 경우(400)
+  ```json
+  {
+    "message": "잘못된 요청입니다."
+  }
+  ```
+### 2. 채용공고 수정
+- url : /jobs
+- method: put
+- request 
+  ```json
+  {
+    "position":"백엔드 주니어 개발자",
+    "compensation":1500000, # 변경됨
+    "content":"원티드랩에서 백엔드 주니어 개발자를 '적극' 채용합니다. 자격요건은..", # 변경됨
+    "skill":"Python"
+  }
+  ```
+- response
+  - 성공(200)
+  ```json
+  {
+    "success": true
+  }
+  ```
+  - 유효하지 않은 값을 전달했을 때(400)
+  ```json
+  {
+    "message": "잘못된 요청입니다."
+  }
+  ```
+### 3. 채용공고 삭제
+- url : /jobs/:job_id
+- method: delete
+- response
+  - 성공(200)
+  ```json
+  {
+    "success": true
+  }
+  ```
+### 4. 채용공고 목록 반환
+### 5. 채용공고 검색
+### 6. 채용 상세 페이지
+### 7. 채용공고 지원
+
+## Commit Convention
+- [Feat] 기능 (새로운 기능)
+- [Fix] 버그 (버그 수정)
+- [Refactor] 리팩토링
+- [Docs] 문서 (문서 추가, 수정, 삭제)
+- [Test] 테스트 (테스트 코드 추가, 수정, 삭제: 비즈니스 로직에 변경 없음)
+- [Setting] 환경 세팅
+```git
+ex) [Feat] ~기능 구현
+```
