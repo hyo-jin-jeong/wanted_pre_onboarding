@@ -1,5 +1,5 @@
 # wanted_pre_onboarding
-원티드 프리온보딩 백엔드 코스 선발과제
+[원티드 프리온보딩 백엔드 코스 선발과제](https://bow-hair-db3.notion.site/5-1850bca26fda4e0ca1410df270c03409)
 
 사용기술 : Node.js, Express.js, Sequelize
 
