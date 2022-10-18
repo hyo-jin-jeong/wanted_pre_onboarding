@@ -44,7 +44,7 @@
   }
   ```
 - response
-  - 성공(200)
+  - 성공(201)
   ```json
   {
     "message": "success"
