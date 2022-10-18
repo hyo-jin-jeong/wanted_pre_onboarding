@@ -1,9 +1,9 @@
-import * as jobsRepository from '../model/jobs.js';
+import * as jobService from '../service/jobs.js';
 
 export async function registerJob(req, res) {
     const { companyId, position, compensation, contents, skill } = req.body;
 
-    await jobsRepository.registerJob(
+    await jobService.registerJob(
         companyId,
         position,
         compensation,
