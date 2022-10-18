@@ -23,6 +23,25 @@ const validateRegisterJob = [
     validator
 ];
 
+
+const validateUpdateJob = [
+    body('position')
+        .optional(true)
+        .isString()
+        .withMessage('유효하지 않은 값입니다.'),
+    body('compensation')
+        .optional(true)
+        .isInt()
+        .withMessage('유효하지 않은 값입니다.'),
+    body('skill')
+        .optional(true)
+        .isString()
+        .withMessage('유효하지 않은 값입니다.'),
+    validator
+]
+
 router.post('/', validateRegisterJob, jobController.registerJob);
+router.patch('/:job_id', validateUpdateJob, jobController.updateJob);
 router.delete('/:job_id', jobController.deleteJob);
+
 export default router;
