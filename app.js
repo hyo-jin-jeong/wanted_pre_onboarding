@@ -1,4 +1,8 @@
+import 'express-async-errors';
+
 import cors from 'cors';
+import { errorHandler } from './middleware/errorHandler.js';
+import { exceptionHandler } from './middleware/exceptionHandler.js';
 import express from 'express';
 import morgan from 'morgan';
 import router from './route/index.js';
@@ -12,14 +16,8 @@ app.use(morgan('dev'));
 
 app.use(router);
 
-app.use((req, res, next) => {
-    res.sendStatus(404);
-});
-
-app.use((error, req, res, next) => {
-    console.error(error);
-    res.sendStatus(500).send()
-});
+app.use(exceptionHandler);
+app.use(errorHandler);
 
 sequelize.sync({ force: false }).then(() => {
     console.log('데이터베이스 연결!');

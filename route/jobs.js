@@ -1,8 +1,6 @@
-import * as jobsController from '../controller/jobs.js';
-
-import { body, param } from 'express-validator';
-
+import { body } from 'express-validator';
 import express from 'express';
+import jobController from '../controller/jobs.js';
 import { validator } from '../middleware/validator.js';
 
 const router = express.Router();
@@ -25,6 +23,6 @@ const validateRegisterJob = [
     validator
 ];
 
-router.post('/', validateRegisterJob, jobsController.registerJob);
-router.delete('/:job_id', jobsController.deleteJob);
+router.post('/', validateRegisterJob, jobController.registerJob);
+router.delete('/:job_id', jobController.deleteJob);
 export default router;
