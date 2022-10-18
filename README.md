@@ -47,18 +47,18 @@
   - 성공(200)
   ```json
   {
-    "success": true
+    "message": "success"
   }
   ```
-  - 회사 id가 없는 경우(400)
+  - input 값이 유효하지 않은 경우(400)
   ```json
   {
-    "message": "잘못된 요청입니다."
+    "message": "유효하지 않은 값 입니다."
   }
   ```
 ### 2. 채용공고 수정
 - url : /jobs
-- method: put
+- method: PUT
 - request 
   ```json
   {
@@ -72,23 +72,29 @@
   - 성공(200)
   ```json
   {
-    "success": true
+    "message": "success"
   }
   ```
-  - 유효하지 않은 값을 전달했을 때(400)
+  - input 값이 유효하지 않은 경우(400)
   ```json
   {
-    "message": "잘못된 요청입니다."
+    "message": "유효하지 않은 값 입니다."
   }
   ```
 ### 3. 채용공고 삭제
 - url : /jobs/:job_id
-- method: delete
+- method: DELETE
 - response
   - 성공(200)
   ```json
   {
-    "success": true
+    "message": "success"
+  }
+  ```
+  - 존재하지 않는 job id를 삭제하려는 경우(404)
+  ```json
+  {
+    "message": "잘못된 요청입니다."
   }
   ```
 ### 4. 채용공고 목록 반환
@@ -105,4 +111,7 @@
 - [Setting] 환경 세팅
 ```git
 ex) [Feat] ~기능 구현
+  
+    - 세부사항1
+    - 세부사항2
 ```
