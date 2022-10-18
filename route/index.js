@@ -1,6 +1,6 @@
 import express from 'express';
-import jobRouter from './jobs.js';
-import userRouter from './users.js';
+import jobRouter from './job.js';
+import userRouter from './user.js';
 
 const router = express.Router();
 

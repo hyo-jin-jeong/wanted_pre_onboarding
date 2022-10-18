@@ -1,6 +1,6 @@
 import { DataTypes, Sequelize } from 'sequelize';
 
-import Job from '../model/jobs.js';
+import Job from '../model/job.js';
 import config from '../config.js';
 
 const { host, username, database, password, dialect } = config.db;

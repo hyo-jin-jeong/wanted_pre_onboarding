@@ -1,5 +1,5 @@
 import { NotFoundException } from '../util/exception/index.js';
-import jobService from '../service/jobs.js';
+import jobService from '../service/job.js';
 
 async function registerJob(req, res) {
     const { companyId, position, compensation, contents, skill } = req.body;

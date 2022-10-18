@@ -1,4 +1,4 @@
-import Job from '../model/jobs.js';
+import Job from '../model/job.js';
 async function registerJob(companyId, position, compensation, contents, skill) {
     const result = await Job.create({
         companyId,

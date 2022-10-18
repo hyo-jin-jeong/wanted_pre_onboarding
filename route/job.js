@@ -1,6 +1,6 @@
 import { body } from 'express-validator';
 import express from 'express';
-import jobController from '../controller/jobs.js';
+import jobController from '../controller/job.js';
 import { validator } from '../middleware/validator.js';
 
 const router = express.Router();
