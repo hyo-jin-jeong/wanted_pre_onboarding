@@ -36,7 +36,7 @@
 - request 
   ```json
   {
-    "company_id": 회사_id,
+    "companyId": 회사_id,
     "position":"백엔드 주니어 개발자",
     "compensation":1000000,
     "contents":"원티드랩에서 백엔드 주니어 개발자를 채용합니다. 자격요건은..",
