@@ -9,3 +9,12 @@ export async function registerJob(companyId, position, compensation, contents, s
     });
     return result.dataValues;
 }
+
+export async function findById(id) {
+    const result = await Job.findOne({ where: { id } });
+    return result;
+}
+
+export async function deleteJob(id) {
+    await Job.destroy({ where: { id } });
+}
