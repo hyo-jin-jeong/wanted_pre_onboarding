@@ -25,6 +25,9 @@ const validateRegisterJob = [
 
 
 const validateUpdateJob = [
+    body('companyId')
+        .isEmpty()
+        .withMessage('잘못된 요청입니다.'),
     body('position')
         .optional(true)
         .isString()
@@ -43,5 +46,7 @@ const validateUpdateJob = [
 router.post('/', validateRegisterJob, jobController.registerJob);
 router.patch('/:job_id', validateUpdateJob, jobController.updateJob);
 router.delete('/:job_id', jobController.deleteJob);
+router.get('/:id', jobController.getJob);
+router.get('/', jobController.getJobs);
 
 export default router;

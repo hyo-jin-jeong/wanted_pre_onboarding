@@ -26,15 +26,6 @@ class Job extends Model {
                 type: DataTypes.STRING(20),
                 allowNull: false
             },
-            companyId: {
-                type: DataTypes.INTEGER,
-                field: 'company_id',
-                references: {
-                    model: 'companies',
-                    key: 'id'
-                },
-                allowNull: false
-            },
             createdAt: {
                 type: DataTypes.DATE,
                 field: 'created_at',
