@@ -27,7 +27,7 @@
 ## 실행방법
 
 ## DB Modeling
-![image](https://user-images.githubusercontent.com/55984573/196209206-c8db9ab3-ad90-428c-93bf-5cb07955f5cc.png)
+![image](https://user-images.githubusercontent.com/55984573/196697797-e543f1c0-f113-4919-ac9c-d758f5361e95.png)
 
 ## API 문서
 ### 1. 채용공고 등록 
@@ -36,7 +36,7 @@
 - request 
   ```json
   {
-    "companyId": 회사_id,
+    "companyId": 3,
     "position":"백엔드 주니어 개발자",
     "compensation":1000000,
     "contents":"원티드랩에서 백엔드 주니어 개발자를 채용합니다. 자격요건은..",
@@ -56,8 +56,14 @@
     "message": "유효하지 않은 값 입니다."
   }
   ```
+  - 존재하지 않는 company id로 요청하는 경우(400)
+  ```json
+  {
+    "message": "잘못된 요청입니다."
+  }
+  ```
 ### 2. 채용공고 수정
-- url : /jobs
+- url : /jobs/:id
 - method: PUT
 - request 
   ```json
@@ -75,7 +81,7 @@
     "message": "success"
   }
   ```
-  - input 값이 유효하지 않은 경우(400)
+  - input 값의 타입이 맞지 않을 경우(400)
   ```json
   {
     "message": "유효하지 않은 값 입니다."
@@ -88,8 +94,14 @@
     "message": "잘못된 요청입니다."
   }
   ```
+  - 존재하지 않는 job id로 요청하는 (404)
+  ```json
+  {
+    "message": "잘못된 요청입니다."
+  }
+  ```
 ### 3. 채용공고 삭제
-- url : /jobs/:job_id
+- url : /jobs/:id
 - method: DELETE
 - response
   - 성공(200)
@@ -98,17 +110,97 @@
     "message": "success"
   }
   ```
-  - 존재하지 않는 job id를 삭제하려는 경우(404)
+  - 존재하지 않는 job id로 (404)
   ```json
   {
     "message": "잘못된 요청입니다."
   }
   ```
-### 4. 채용공고 목록 반환
-### 5. 채용공고 검색
+### 4,5. 채용공고 목록 반환 및 검색
+> #### 지역, 국가, 회사이름, 포지션, 스킬 중 검색 keyword가 들어있으면 반환 
+> #### search 없이 요청 보낼 경우 전체 목록 반환
+- url: /jobs?search=keyword
+- method: GET
+- response
+  - 성공(200)
+  ```json
+    [
+      {
+        "id": 1,
+        "position": "백엔드 주니어 개발자",
+        "compensation": 3000000,
+        "skill": "Python",
+        "companyName": "dd",
+        "region": null,
+        "country": null
+      },
+      {
+        "id": 2,
+        "position": "백엔드 주니어 개발자",
+        "compensation": 5000000,
+        "skill": "Python",
+        "companyName": "dd",
+        "region": null,
+        "country": null
+      },
+   ]
+    ```
 ### 6. 채용 상세 페이지
+- url: /jobs/:id 
+- method: GET
+- response
+  - 성공(200)
+  ```json
+  {
+      "id": 10,
+      "position": "백엔드 주니어 개발자",
+      "compensation": 300000,
+      "skill": "Python",
+      "content": null,
+      "companyName": "하하",
+      "region": "서울",
+      "country": "한국",
+      "otherJobs": [
+          6,
+          11
+      ]
+  }
+  ```
+  - 존재하지 않는 id로 요청하는 경우(404)
+  ```json
+  {
+    "message": "잘못된 요청입니다."
+  }
+  ```
 ### 7. 채용공고 지원
-
+- url: /jobs/appliment 
+- method: POST
+- request
+  ```json
+  {
+    "userId":"1",
+    "jobId":"4"
+  }
+  ```
+- response
+  - 이미 지원한 경우(400)
+  ```json
+  {
+    "message": "이미 지원한 공고입니다."
+  }
+  ```
+  - input 값을 잘못 넘길 경우(400)
+  ```json
+  {
+    "message": "유효하지 않은 값입니다."
+  }
+  ```
+  - 존재하지 않은 userId or jobId로 요청하는 경우(400)
+  ```json
+  {
+    "message": "잘못된 요청입니다."
+  }
+  ```
 ## Commit Convention
 - [Feat] 기능 (새로운 기능)
 - [Fix] 버그 (버그 수정)
