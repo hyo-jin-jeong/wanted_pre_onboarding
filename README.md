@@ -24,7 +24,6 @@
   (DB에 임의로 생성하여 진행)
 > - 로그인 등 사용자 인증절차(토큰 등)는 생략합니다.
 > - orm 필수 사용
-## 실행방법
 
 ## DB Modeling
 ![image](https://user-images.githubusercontent.com/55984573/196697797-e543f1c0-f113-4919-ac9c-d758f5361e95.png)
