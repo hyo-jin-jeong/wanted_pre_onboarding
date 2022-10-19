@@ -27,7 +27,7 @@
 ## 실행방법
 
 ## DB Modeling
-![image](https://user-images.githubusercontent.com/55984573/196209206-c8db9ab3-ad90-428c-93bf-5cb07955f5cc.png)
+![image](https://user-images.githubusercontent.com/55984573/196697797-e543f1c0-f113-4919-ac9c-d758f5361e95.png)
 
 ## API 문서
 ### 1. 채용공고 등록 
