@@ -81,6 +81,13 @@
     "message": "유효하지 않은 값 입니다."
   }
   ```
+  - input 값에 회사 id가 있는경우(400)
+  
+  ```json
+  {
+    "message": "잘못된 요청입니다."
+  }
+  ```
 ### 3. 채용공고 삭제
 - url : /jobs/:job_id
 - method: DELETE
