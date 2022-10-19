@@ -1,4 +1,4 @@
-import { Model } from 'sequelize';
+import { Model, Sequelize } from 'sequelize';
 
 class Company extends Model {
     static init(sequelize, DataTypes) {
@@ -23,12 +23,14 @@ class Company extends Model {
             createdAt: {
                 type: DataTypes.DATE,
                 field: 'created_at',
-                allowNull: false
+                allowNull: false,
+                defaultValue: Sequelize.fn('NOW')
             },
             updatedAt: {
                 type: DataTypes.DATE,
                 field: 'updated_at',
-                allowNull: false
+                allowNull: false,
+                defaultValue: Sequelize.fn('NOW')
             }
         }, {
             sequelize,

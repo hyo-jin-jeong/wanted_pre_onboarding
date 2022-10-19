@@ -1,4 +1,4 @@
-import { Model } from 'sequelize';
+import { Model, Sequelize } from 'sequelize';
 
 class Job extends Model {
     static init(sequelize, DataTypes) {
@@ -26,15 +26,26 @@ class Job extends Model {
                 type: DataTypes.STRING(20),
                 allowNull: false
             },
+            companyId: {
+                type: DataTypes.INTEGER,
+                field: 'company_id',
+                references: {
+                    model: 'companies',
+                    key: 'id'
+                },
+                allowNull: false
+            },
             createdAt: {
                 type: DataTypes.DATE,
                 field: 'created_at',
-                allowNull: false
+                allowNull: false,
+                defaultValue: Sequelize.fn('NOW')
             },
             updatedAt: {
                 type: DataTypes.DATE,
                 field: 'updated_at',
-                allowNull: false
+                allowNull: false,
+                defaultValue: Sequelize.fn('NOW')
             }
         }, {
             sequelize,

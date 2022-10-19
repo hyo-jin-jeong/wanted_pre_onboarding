@@ -22,7 +22,7 @@ const initModel = () => {
 
 const associate = () => {
     User.belongsToMany(Job, { through: 'apply_histories' });
-    Company.hasMany(Job, { foreignKey: { name: 'company_id' } });
+    Company.hasMany(Job, { foreignKey: 'company_id' });
 }
 
 initModel();

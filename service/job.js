@@ -11,7 +11,16 @@ async function registerJob(companyId, position, compensation, contents, skill) {
 }
 
 async function findById(id) {
-    const result = await Job.findOne({ where: { id } });
+    const result = await Job.findOne({
+        attributes: [
+            'id',
+            'position',
+            'compensation',
+            'content',
+            'skill',
+            'companyId'
+        ], where: { id }
+    });
     return result;
 }
 
