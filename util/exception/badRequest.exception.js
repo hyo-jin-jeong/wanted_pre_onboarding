@@ -1,4 +1,4 @@
-import { httpException } from "./http.exception.js";
+import { httpException } from './http.exception.js';
 
 export class BadRequestException extends httpException {
     constructor(message) {

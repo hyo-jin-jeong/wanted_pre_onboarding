@@ -46,11 +46,11 @@ async function getJobs(searchKeyword) {
     } : '';
 
     return await Job.findAll({
-        attributes: ["id", "compensation", "position", "skill"],
+        attributes: ['id', 'compensation', 'position', 'skill'],
         include: [{
             model: Company,
             as: 'Company',
-            attributes: ["name", "region", "country"],
+            attributes: ['name', 'region', 'country'],
             required: true
         }], where: whereSyntax
     });
@@ -59,12 +59,12 @@ async function getJobs(searchKeyword) {
 async function getJob(id) {
     return await Job.findOne({
         attributes: [
-            "id",
-            "companyId",
-            "position",
-            "compensation",
-            "skill",
-            "content",
+            'id',
+            'companyId',
+            'position',
+            'compensation',
+            'skill',
+            'content',
         ],
         include: 'Company',
         where: { id }
@@ -73,9 +73,13 @@ async function getJob(id) {
 
 async function getJobIdByCompanyId(id, companyId) {
     return await Job.findAll({
-        attributes: ["id"],
+        attributes: ['id'],
         where: { [Op.and]: { companyId, id: { [Op.ne]: id } } }
     });
+}
+
+async function applyJob(user, job) {
+    return await user.addJob(job);
 }
 
 export default {
@@ -85,5 +89,6 @@ export default {
     deleteJob,
     getJobs,
     getJob,
-    getJobIdByCompanyId
+    getJobIdByCompanyId,
+    applyJob
 }
