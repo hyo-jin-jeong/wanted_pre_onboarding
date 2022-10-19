@@ -1,10 +1,16 @@
 import { BadRequestException, NotFoundException } from '../util/exception/index.js';
 
+import companyService from '../service/company.js';
 import jobService from '../service/job.js';
 import userService from '../service/user.js';
 
 async function registerJob(req, res) {
     const { companyId, position, compensation, contents, skill } = req.body;
+
+    const company = await companyService.findById(companyId);
+    if (!company) {
+        throw new BadRequestException('잘못된 요청입니다.');
+    }
 
     await jobService.registerJob(
         companyId,

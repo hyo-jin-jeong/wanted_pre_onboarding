@@ -46,11 +46,11 @@ const validateUpdateJob = [
 const validateApplyJob = [
     body('userId')
         .trim()
-        .isLength({ min: 1 })
+        .isInt()
         .withMessage('유효하지 않은 값입니다.'),
     body('jobId')
         .trim()
-        .isLength({ min: 1 })
+        .isInt()
         .withMessage('유효하지 않은 값입니다.'),
     validator
 ];
@@ -60,6 +60,6 @@ router.patch('/:id', validateUpdateJob, jobController.updateJob);
 router.delete('/:id', jobController.deleteJob);
 router.get('/:id', jobController.getJob);
 router.get('/', jobController.getJobs);
-router.post('/appliment', jobController.applyJob);
+router.post('/appliment', validateApplyJob, jobController.applyJob);
 
 export default router;
