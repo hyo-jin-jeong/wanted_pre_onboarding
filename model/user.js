@@ -1,6 +1,6 @@
 import { Model } from 'sequelize';
 
-class Company extends Model {
+class User extends Model {
     static init(sequelize, DataTypes) {
         super.init({
             id: {
@@ -11,14 +11,8 @@ class Company extends Model {
                 unique: true
             },
             name: {
-                type: DataTypes.STRING(50),
+                type: DataTypes.STRING(20),
                 allowNull: false,
-            },
-            country: {
-                type: DataTypes.STRING(50),
-            },
-            region: {
-                type: DataTypes.STRING(50)
             },
             createdAt: {
                 type: DataTypes.DATE,
@@ -33,9 +27,9 @@ class Company extends Model {
         }, {
             sequelize,
             timestamps: true,
-            tableName: 'companies'
+            tableName: 'users'
         })
     }
 }
 
-export default Company;
+export default User;

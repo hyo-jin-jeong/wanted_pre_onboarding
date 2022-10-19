@@ -19,19 +19,28 @@ class Job extends Model {
                 allowNull: false,
                 defaultValue: 0
             },
-            context: {
+            content: {
                 type: DataTypes.TEXT,
             },
             skill: {
                 type: DataTypes.STRING(20),
                 allowNull: false
             },
+            createdAt: {
+                type: DataTypes.DATE,
+                field: 'created_at',
+                allowNull: false
+            },
+            updatedAt: {
+                type: DataTypes.DATE,
+                field: 'updated_at',
+                allowNull: false
+            }
         }, {
             sequelize,
             timestamps: true,
             tableName: 'jobs'
-        }
-        )
+        })
     }
 }
 
