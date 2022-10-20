@@ -1,8 +1,6 @@
 # wanted_pre_onboarding
 [원티드 프리온보딩 백엔드 코스 선발과제](https://bow-hair-db3.notion.site/5-1850bca26fda4e0ca1410df270c03409)
 
-사용기술 : Node.js, Express.js, Sequelize
-
 ## 서비스 개요
 
 - 본 서비스는 기업의 채용을 위한 웹 서비스 입니다.
@@ -24,6 +22,12 @@
   (DB에 임의로 생성하여 진행)
 > - 로그인 등 사용자 인증절차(토큰 등)는 생략합니다.
 > - orm 필수 사용
+
+
+## 사용기술 
+Node.js, Express.js, Sequelize, Mysql
+
+
 
 ## DB Modeling
 ![image](https://user-images.githubusercontent.com/55984573/196697797-e543f1c0-f113-4919-ac9c-d758f5361e95.png)
@@ -204,7 +208,6 @@
 - [Feat] 기능 (새로운 기능)
 - [Fix] 버그 (버그 수정)
 - [Refactor] 리팩토링
-- [Docs] 문서 (문서 추가, 수정, 삭제)
 - [Test] 테스트 (테스트 코드 추가, 수정, 삭제: 비즈니스 로직에 변경 없음)
 - [Setting] 환경 세팅
 ```git
